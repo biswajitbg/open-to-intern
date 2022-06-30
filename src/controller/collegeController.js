@@ -66,7 +66,7 @@ const createIntern = async function (req, res) {
 
         if (!data.mobile)
             return res.status(400).send({ status: false, msg: "Plese enter mobile number" })
-        mobile = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(data.mobile);
+        mobile = /^[6,9]\d{9}$/.test(data.mobile);
         if (!mobile)
             res.status(400).send({ msg: "Please enter valid format of mobile" })
         let checkMobile = await internModel.find({ mobile: data.mobile })
